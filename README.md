@@ -9,11 +9,11 @@ Provide a brief description of all routes in the backend system.
 This code defines an Express router for handling user authentication and profile management operations.
 Below is a detailed description of each route and its functionality.
 
-Middleware: CheckLogged
+**Middleware: CheckLogged**
 
 - **Description**: The `CheckLogged` middleware verifies if a user is logged in by checking a JWT token stored in cookies. If the token is valid, the user is authenticated and their data is returned. If the user is not authenticated, the next middleware is called.
 
-Routes
+**Routes**
 
 - **POST /update_profile**
   - **Description**: Updates the user's profile information in the database. It allows users to update their first name, last name, and profile picture based on their email address.
@@ -63,11 +63,11 @@ Routes
 #### /chat Route
 For handling various operations related to user authentication, file uploads, and interactions with the OpenAI API.
 
-Middleware: CheckUser
+**Middleware: CheckUser**
 
 - **Description**: The `CheckUser` middleware verifies if a user is logged in by checking a JWT token stored in cookies. If the token is valid, the user's ID is added to the request body. If the user is not authenticated, an error response is returned.
 
-Routes
+**Routes**
 
 - **GET /**
   - **Description**: Responds with a welcome message for the ChatGPT API.
@@ -103,6 +103,29 @@ Routes
 ### 2. User Interface Enhancements:
 Integrate Dark Mode: Implement a toggle feature that allows users to switch between light and dark themes.
 #### Dark Mode Implementation
+
+**Step 1: Define Global CSS Variables**
+- Define CSS variables for both light and dark themes.
+- Include variables for background color, text color.
+
+**Step 2: Create ThemeContext**
+- Create a ThemeContext to manage the current theme across the application.
+- Define a context provider component to supply the theme state and a method to toggle the theme.
+
+**Step 3: Apply Global CSS**
+- Import the global CSS file into your main application file.
+- Use the ThemeContext provider to wrap your application.
+- Set up state management in the provider component to toggle between light and dark themes.
+- Update the body class based on the selected theme.
+
+**Step 4: Use ThemeContext in Components**
+- Consume the ThemeContext in your components to access the current theme and the toggle function.
+- Ensure the Auth component's CSS uses the CSS variables defined in the global CSS file.
+- Reference the CSS variables for properties like background color, text color to automatically adapt to the current theme.
+
+**Step 5: Implement Theme Toggle**
+- Implement a button or toggle switch in your main application file to change the theme.
+- Use the context's toggle function to switch between themes when the button is clicked.
 
 
 ### 3. Video Explaination
